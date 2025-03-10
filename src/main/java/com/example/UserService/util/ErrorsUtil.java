@@ -1,5 +1,6 @@
 package com.example.UserService.util;
 
+import com.example.UserService.errors.UserNotCreatedException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 
@@ -15,6 +16,6 @@ public class ErrorsUtil {
                     .append(" - ").append(error.getDefaultMessage())
                     .append(";");
         }
-        throw new UserNotCreatedException(errorMsg.toString());
+        throw new UserNotCreatedException();
     }
 }

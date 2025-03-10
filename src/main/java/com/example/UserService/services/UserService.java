@@ -3,7 +3,7 @@ package com.example.UserService.services;
 import com.example.UserService.DTO.UserDTO;
 import com.example.UserService.models.User;
 import com.example.UserService.repositories.UserRepository;
-import com.example.UserService.util.UserNotFoundException;
+import com.example.UserService.errors.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ public class UserService {
         if (userRepository.findById(id).isPresent()) {
             return userRepository.findById(id).get();
         } else {
-            throw new UserNotFoundException("Пользователь не найден");
+            throw new UserNotFoundException();
         }
     }
     @Transactional
